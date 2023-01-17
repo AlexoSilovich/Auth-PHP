@@ -33,11 +33,15 @@
     <label for="">name</label>
     <input type="text" name="name" placeholder="name..">
 
-    <button class="reg-btn" type="submit">Sign in</button>
+    <button class="reg-btn" type="submit">Sign up</button>
 
     <a href="/">sign in</a>
     
-    <p class="warning hidden">Register fail</p>
+    <p class="login-warning hidden"></p>
+    <p class="password-warning hidden"></p>
+    <p class="confirm-password-warning hidden"></p>
+    <p class="email-warning hidden"></p>
+    <p class="name-warning hidden"></p>
 
   </form>
 

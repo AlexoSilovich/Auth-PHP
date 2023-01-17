@@ -25,7 +25,7 @@ $('.signin-btn').click((e) => {
             $(`input[name="${field}"]`).addClass('error')
           })
         }
-        $('.warning').removeClass('hidden').text(data.message)
+        console.log(data.fields)
       }
     }
   })
@@ -59,14 +59,39 @@ $('.reg-btn').click((e) => {
     success: function(data) {
       if (data.status) {
         document.location.href = 'index.php'
-        console.log(data.status)
       } else {
         if (data.type === 1) {
           data.fields.forEach((field) => {
             $(`input[name="${field}"]`).addClass('error')
           })
         }
-        $('.warning').removeClass('hidden').text(data.message)
+          let errorMessages = data.fields
+
+          if (!errorMessages.includes('login')) {
+            $('.login-warning').addClass('hidden')
+          } else {
+            $('.login-warning').removeClass('hidden').text('минимум 6 символов')
+          }
+          if (!errorMessages.includes('password')) {
+            $('.password-warning').addClass('hidden')
+          } else {
+            $('.password-warning').removeClass('hidden').text('минимум 6 символов , обязательно должны состоять из цифр и букв')
+          }
+          if (!errorMessages.includes('confirm_password')) {
+            $('.confirm-password-warning').addClass('hidden')
+          } else {
+            $('.confirm-password-warning').removeClass('hidden').text('пароли не совпадают')
+          }
+          if (!errorMessages.includes('email')) {
+            $('.email-warning').addClass('hidden')
+          } else {
+            $('.email-warning').removeClass('hidden').text('введите валидный email')
+          }
+          if (!errorMessages.includes('name')) {
+            $('.name-warning').addClass('hidden')
+          } else {
+            $('.name-warning').removeClass('hidden').text('минимум 2 символа , только буквы')
+          }
       }
     }
   })

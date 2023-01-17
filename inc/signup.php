@@ -10,29 +10,34 @@
   $name = $_POST['name'];
 
   $error_fields = [];
-  $valid_pass = "/^[a-zа-яё\d][a-zа-яё\d\s][a-zа-яё\d]$/i";
+  $error_message = [];
 
   if (strlen($login) < 6) {
     $error_fields[] = 'login';
+    $error_message[] = 'incorrect login';
   }
-  if (strlen($password) < 6 || preg_match($valid_pass, $password)) {
+  if (strlen($password) < 6 || ctype_alpha($password) || ctype_digit($password)) {
     $error_fields[] = 'password';
+    $error_message[] = 'incorrect password';
   }
   if ($confirm_password != $password || $confirm_password == '') {
     $error_fields[] = 'confirm_password';
+    $error_message[] = 'incorrect confirm_password';
   }
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $error_fields[] = 'email';
+    $error_message[] = 'incorrect email';
   }
-  if (strlen($name) < 2) {
+  if (strlen($name) < 2 || !ctype_alpha($name)) {
     $error_fields[] = 'name';
+    $error_message[] = 'incorrect name';
   }
 
   if (!empty($error_fields)) {
     $response = [
       "status" => false,
       "type" => 1,
-      "message" => 'incorrect auth',
+      "message" => $error_message,
       "fields" => $error_fields
     ];
 

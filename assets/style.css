@@ -15,6 +15,7 @@ body {
 }
 
 form {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,4 +52,65 @@ a {
   color: red;
   border-radius: 20px;
   padding: 5px 10px;
+}
+
+.login-warning {
+  position: absolute;
+  top: 11px;
+  left: 105%;
+  width: 300px;
+  margin-top: 10px;
+  border: 1px solid red;
+  color: red;
+  border-radius: 20px;
+  padding: 5px 10px;
+  text-align: center;
+}
+.password-warning {
+  width: 300px;
+  position: absolute;
+  top: 68px;
+  left: 105%;
+  margin-top: 10px;
+  border: 1px solid red;
+  color: red;
+  border-radius: 20px;
+  padding: 5px 10px;
+  text-align: center;
+}
+.confirm-password-warning {
+  position: absolute;
+  top: 144px;
+  left: 105%;
+  width: 300px;
+  margin-top: 10px;
+  border: 1px solid red;
+  color: red;
+  border-radius: 20px;
+  padding: 5px 10px;
+  text-align: center;
+}
+.email-warning {
+  position: absolute;
+  top: 210px;
+  left: 105%;
+  width: 300px;
+  margin-top: 10px;
+  border: 1px solid red;
+  color: red;
+  border-radius: 20px;
+  padding: 5px 10px;
+  text-align: center;
+}
+.name-warning {
+  position: absolute;
+  top: 277px;
+  left: 105%;
+  width: 300px;
+  margin-top: 10px;
+  border: 1px solid red;
+  color: red;
+  border-radius: 20px;
+  padding: 5px 10px;
+  text-align: center;
 }
